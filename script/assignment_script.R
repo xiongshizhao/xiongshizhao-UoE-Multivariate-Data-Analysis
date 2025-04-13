@@ -8,7 +8,7 @@ library(MASS)
 library(RColorBrewer)
 
 # Load Data
-load("~/Desktop/Mathematics Project/xiongshizhao-UoE-Multivariate-Data-Analysis/Assignment3_Data.RData")
+load("data/Assignment3_Data.RData")
 
 
 # --- Data Preparation ---
@@ -155,7 +155,7 @@ plot1 <- ggplot(data.frame(Expression = sample_numeric), aes(x = Expression)) +
 
 # Print and save the boxplot
 print(plot1)
-ggsave("~/Desktop/plot1.png", plot = plot1, width = 12, height = 8, dpi = 900)
+ggsave("outputs/plot1.png", plot = plot1, width = 12, height = 8, dpi = 900)
 
 
 ## Boxplot of Log Gene Expression for a Specific Gene
@@ -204,7 +204,7 @@ plot2 <- ggplot(gene_df_boxplot, aes(x = Condition, y = Expression, fill = Treat
 
 # Print and save the plot
 print(plot2)
-ggsave("~/Desktop/plot2.png", plot = plot2, width = 12, height = 8, dpi = 900)
+ggsave("outputs/plot2.png", plot = plot2, width = 12, height = 8, dpi = 900)
 
 
 ## Time Course Plot for a Specific Gene
@@ -244,7 +244,7 @@ plot3 <- ggplot(gene_df_timecourse, aes(x = TimeNumeric, y = Expression, color =
 
 # Print and save the plot
 print(plot3)
-ggsave("~/Desktop/plot3.png", plot = plot3, width = 12, height = 8, dpi = 900)
+ggsave("outputs/plot3.png", plot = plot3, width = 12, height = 8, dpi = 900)
 
 
 ## Outlier Sample Check
@@ -287,7 +287,7 @@ plot4 <- ggplot(data_long, aes(x = SampleID, y = Expression, fill = Treatment)) 
 
 # Print and save the plot
 print(plot4)
-ggsave("~/Desktop/plot4.png", plot = plot4, width = 14, height = 8, dpi = 900) 
+ggsave("outputs/plot4.png", plot = plot4, width = 14, height = 8, dpi = 900) 
 
 
 
@@ -333,7 +333,7 @@ plot5 <- ggplot(variance_data, aes(x = PC, y = VariancePercent)) +
 
 # Print and save the plot
 print(plot5)
-ggsave("~/Desktop/plot5.png", plot = plot5, width = 12, height = 7, dpi = 900)
+ggsave("outputs/plot5.png", plot = plot5, width = 12, height = 7, dpi = 900)
 
 
 ## Investigate how samples cluster on the first two principal components
@@ -372,7 +372,7 @@ plot6 <- ggplot(pca_plot_df, aes(x = PC1, y = PC2, color = Treatment, shape = Ti
 
 # print and save the plot
 print(plot6)
-ggsave("~/Desktop/plot6.png", plot = plot6, width = 10, height = 8, dpi = 900)
+ggsave("outputs/plot6.png", plot = plot6, width = 10, height = 8, dpi = 900)
 
 
 ## Select a small number of PCs that describe variability in the data
@@ -414,7 +414,7 @@ plot7 <- fviz_nbclust(data_for_clustering, kmeans, method = "wss", k.max = 10) +
 
 # Print and save the plot
 print(plot7)
-ggsave("~/Desktop/plot7.png", plot = plot7, width = 8, height = 6, dpi = 900)
+ggsave("outputs/plot7.png", plot = plot7, width = 8, height = 6, dpi = 900)
 
 # Silhouette Method (Average Silhouette Width)
 plot8 <- fviz_nbclust(data_for_clustering, kmeans, method = "silhouette", k.max = 10) +
@@ -438,7 +438,7 @@ plot8 <- fviz_nbclust(data_for_clustering, kmeans, method = "silhouette", k.max 
   )
 
 print(plot8)
-ggsave("~/Desktop/plot8.png", plot = plot8, width = 10, height = 8, dpi = 900)
+ggsave("outputs/plot8.png", plot = plot8, width = 10, height = 8, dpi = 900)
 
 # Based on the plots, choose an optimal k
 optimal_k <- 3
@@ -501,7 +501,7 @@ plot9 <- fviz_dend(
 
 # Print and save the plot
 print(plot9)
-ggsave("~/Desktop/plot9.png", plot = plot9, width = 10, height = 8, dpi = 900)
+ggsave("outputs/plot9.png", plot = plot9, width = 10, height = 8, dpi = 900)
 
 
 ## Compare Clustering Results to Experimental Covariates
@@ -535,7 +535,7 @@ plot10 <- ggplot(pca_plot_df, aes(x = PC1, y = PC2, color = Cluster_KMeans, shap
 
 # Print and save the plot
 print(plot10)
-ggsave("~/Desktop/plot10.png", plot = plot10, width = 10, height = 8, dpi = 900)
+ggsave("outputs/plot10.png", plot = plot10, width = 10, height = 8, dpi = 900)
 
 # Plot PCA colored by Hierarchical clusters
 plot11 <- ggplot(pca_plot_df, aes(x = PC1, y = PC2, color = Cluster_Hclust, shape = Condition)) +
@@ -568,7 +568,7 @@ plot11 <- ggplot(pca_plot_df, aes(x = PC1, y = PC2, color = Cluster_Hclust, shap
 
 # Print and save the plot
 print(plot11)
-ggsave("~/Desktop/plot11.png", plot = plot11, width = 10, height = 8, dpi = 900)
+ggsave("outputs/plot11.png", plot = plot11, width = 10, height = 8, dpi = 900)
 
 # Create contingency tables to formally compare clustering and conditions
 message("Contingency Table: k-means vs Condition")
@@ -678,4 +678,4 @@ plot12 <- ggplot(lda_plot_df, aes(x = LD1, y = LD2, color = Condition, shape = C
 
 # Print and save the plot
 print(plot12)
-ggsave("~/Desktop/plot12.png", plot = plot12, width = 10, height = 8, dpi = 900)
+ggsave("outputs/plot12.png", plot = plot12, width = 10, height = 8, dpi = 900)
