@@ -333,7 +333,7 @@ plot5 <- ggplot(variance_data, aes(x = PC, y = VariancePercent)) +
 
 # Print and save the plot
 print(plot5)
-ggsave("outputs/plot5.png", plot = plot5, width = 12, height = 7, dpi = 900)
+ggsave("outputs/plot5.png", plot = plot5, width = 12, height = 8, dpi = 900)
 
 
 ## Investigate how samples cluster on the first two principal components
@@ -414,7 +414,7 @@ plot7 <- fviz_nbclust(data_for_clustering, kmeans, method = "wss", k.max = 10) +
 
 # Print and save the plot
 print(plot7)
-ggsave("outputs/plot7.png", plot = plot7, width = 8, height = 6, dpi = 900)
+ggsave("outputs/plot7.png", plot = plot7, width = 10, height = 8, dpi = 900)
 
 # Silhouette Method (Average Silhouette Width)
 plot8 <- fviz_nbclust(data_for_clustering, kmeans, method = "silhouette", k.max = 10) +
